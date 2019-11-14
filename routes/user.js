@@ -7,12 +7,20 @@ router.get("/", async (req, res, next) => {
   await res.send(User.findAll());
 });
 
-router.post("/:id", (req, res, next) => {
-  res.send();
+router.get("/:id", async (req, res, next) => {
+  await res.send("get with id");
 });
 
-router.get("/add", (req, res, next) => {
-  res.send();
+router.post("/", (req, res, next) => {
+  res.send("IN");
+});
+
+router.put("/:id", async (req, res, next) => {
+  await res.send("put users page");
+});
+
+router.delete("/:id", (req, res, next) => {
+  res.send("delete page in");
 });
 
 module.exports = router;

@@ -5,6 +5,7 @@ const morgan = require("morgan");
 const { db, User, Page } = require("./models");
 const wikiRouter = require("./routes/wiki");
 const userRouter = require("./routes/user");
+app.use(express.urlencoded({ extended: false }));
 app.use(morgan("dev"));
 
 app.use(express.static("public"));
