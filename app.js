@@ -5,14 +5,16 @@ const morgan = require("morgan");
 const { db, User, Page } = require("./models");
 const wikiRouter = require("./routes/wiki");
 const userRouter = require("./routes/user");
-app.use("/wiki", wikiRouter);
 app.use(morgan("dev"));
 
 app.use(express.static("public"));
 
+app.use("/wiki", wikiRouter);
+app.use("/user", userRouter);
+
 app.get("/", async (rec, res, next) => {
   // const users = await User.findAll();
-  res.send("l");
+  res.send("Home page");
 });
 
 const connect = async () => {

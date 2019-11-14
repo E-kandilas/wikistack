@@ -1,13 +1,16 @@
 const express = require("express");
 const router = express.Router();
+const addPage = require("../views/addPage");
 router.get("/", (req, res, next) => {
   res.send("got to GET /wiki/");
 });
 
-router.post("/", (req, res, next) => {
+router.post("/:id", (req, res, next) => {
   res.send("got to POST /wiki/");
 });
 
 router.get("/add", (req, res, next) => {
-  res.send("got to POST /wiki/add");
+  res.send(addPage());
 });
+
+module.exports = router;
